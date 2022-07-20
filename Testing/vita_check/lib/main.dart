@@ -7,8 +7,8 @@ void main() {
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      // home: Splash_screen(),
-      home: SensorData(),
+      home: Splash_screen(),
+      // home: SensorData(),
       // home: Scaffold(backgroundColor: Colors.white, body: SensorChart()),
     ),
   );
