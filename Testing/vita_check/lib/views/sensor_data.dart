@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vita_check/widgets.dart/bottom_navigation..dart';
 import 'package:vita_check/widgets.dart/chart.dart';
 import 'package:vita_check/widgets.dart/sensorData.dart';
 
@@ -10,6 +11,7 @@ class SensorData extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigation(),
       backgroundColor: Color(0xff2D3A35),
       body: SingleChildScrollView(
         child: Column(

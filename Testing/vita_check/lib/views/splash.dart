@@ -7,10 +7,10 @@ class Splash_screen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Image.asset(
-        fit: BoxFit.cover,
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
         "assets/splash.png",
+        fit: BoxFit.cover,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
       ),
     );
   }
