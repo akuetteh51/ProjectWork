@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 import 'package:vita_check/views/aichat_screen.dart';
 import 'package:vita_check/views/calendar.dart';
 import 'package:vita_check/views/doctor_screen.dart';
 import 'package:vita_check/views/sensor_data.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({Key? key}) : super(key: key);
+  final int selectedIndex;
+  const BottomNavigation({Key? key, required this.selectedIndex})
+      : super(key: key);
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
-  int selectedIndex = 0;
   List<IconData> data = [
     Icons.home,
     Icons.person,
@@ -23,6 +24,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
   final _pages = [SensorData(), doctor(), calendar_screen(), aichat()];
   @override
   Widget build(BuildContext context) {
+    print(widget.selectedIndex);
     return Padding(
       padding: const EdgeInsets.all(10),
       child: Material(
@@ -39,17 +41,17 @@ class _BottomNavigationState extends State<BottomNavigation> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: GestureDetector(
                 onTap: () {
-                  setState(() {
-                    selectedIndex = i;
-                  });
-                  Get.to(() => _pages[i]);
-                  print(i);
+                  print(widget.selectedIndex);
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: ((context) => _pages[i])),
+                  );
                 },
                 child: (AnimatedContainer(
                   duration: Duration(milliseconds: 250),
                   width: 60,
                   decoration: BoxDecoration(
-                    border: i == selectedIndex
+                    border: i == widget.selectedIndex
                         ? Border(
                             top: BorderSide(width: 5.0, color: Colors.white))
                         : null,
@@ -59,7 +61,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
                     child: Icon(
                       data[i],
                       size: 24,
-                      color: i == selectedIndex
+                      color: i == widget.selectedIndex
                           ? Colors.white
                           : Colors.grey.shade800,
                     ),
