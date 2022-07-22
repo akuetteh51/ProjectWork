@@ -15,3 +15,4 @@ class Splash_screen extends StatelessWidget {
     );
   }
 }
+
