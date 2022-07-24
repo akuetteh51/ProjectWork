@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
+import 'package:vita_check/widgets.dart/bottom_navigation..dart';
 
 class doctor extends StatelessWidget {
   const doctor({Key? key}) : super(key: key);
@@ -8,7 +8,8 @@ class doctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text("Calendar")),
+      bottomNavigationBar: BottomNavigation(),
+      body: Center(child: Text("doctor screen")),
     );
   }
 }
