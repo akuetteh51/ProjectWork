@@ -9,13 +9,9 @@ class calendar_screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-<<<<<<< HEAD
       bottomNavigationBar: BottomNavigation(
         selectedIndex: 2,
       ),
-=======
-      bottomNavigationBar: BottomNavigation(),
->>>>>>> 5111f286bd30a85e98efe367b47e7a2eff9c952b
       body: Center(child: Text("Calendar")),
     );
   }
