@@ -26,6 +26,10 @@ class _SensorChartState extends State<SensorChart> {
             charts.ColorUtil.fromDartColor(task.colorval),
         id: 'Body Vitals',
         labelAccessorFn: (Task row, _) => '${row.taskvalue}',
+        areaColorFn: (Task task, _) =>
+            charts.ColorUtil.fromDartColor(Colors.white),
+        patternColorFn: (Task task, _) =>
+            charts.ColorUtil.fromDartColor(Colors.white),
       ),
     ];
     return Padding(
@@ -34,7 +38,7 @@ class _SensorChartState extends State<SensorChart> {
         child: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height / 3,
-          color: Colors.white,
+          color: Colors.transparent,
           child: charts.BarChart(_series),
         ),
       ),

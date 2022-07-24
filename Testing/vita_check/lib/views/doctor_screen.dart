@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:vita_check/widgets.dart/bottom_navigation..dart';
 
 class doctor extends StatelessWidget {
@@ -12,7 +10,7 @@ class doctor extends StatelessWidget {
       bottomNavigationBar: BottomNavigation(
         selectedIndex: 1,
       ),
-      body: Center(child: Text("Calendar")),
+      body: Center(child: Text("doctor")),
     );
   }
 }

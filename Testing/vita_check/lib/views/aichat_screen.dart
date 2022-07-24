@@ -12,7 +12,7 @@ class aichat extends StatelessWidget {
       bottomNavigationBar: BottomNavigation(
         selectedIndex: 3,
       ),
-      body: Center(child: Text("Calendar")),
+      body: Center(child: Text("chat")),
     );
   }
 }
