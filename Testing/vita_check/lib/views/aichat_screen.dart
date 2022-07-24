@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:vita_check/widgets.dart/bottom_navigation..dart';
 
 class aichat extends StatelessWidget {
