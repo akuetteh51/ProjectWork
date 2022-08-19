@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vita_check/widgets.dart/bottom_navigation..dart';
-import 'package:vita_check/widgets.dart/chart.dart';
-import 'package:vita_check/widgets.dart/sensorData.dart';
+import 'package:vita_check/widgets/bottom_navigation..dart';
+import 'package:vita_check/widgets/chart.dart';
+import 'package:vita_check/widgets/sensorData.dart';
 
-import 'package:vita_check/widgets.dart/containerHieght.dart';
+import 'package:vita_check/widgets/containerHieght.dart';
 
 class SensorData extends StatelessWidget {
   const SensorData({Key? key}) : super(key: key);

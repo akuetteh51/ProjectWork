@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:vita_check/widgets.dart/bottom_navigation..dart';
+import 'package:vita_check/widgets/bottom_navigation..dart';
 
 List<String> messageWidget = ["Hello", "Modit"];
 List<String> messageSender = ["Hello", "Modit"];
@@ -15,7 +15,8 @@ class aichat extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xff35A4B6),
         leading: BackButtonIcon(),
-        title: Text("Carol"),
+        title: Row(children: [CircleAvatar(backgroundImage:AssetImage("assets/doctor.png"),radius: 18,),SizedBox(width:10),
+      Text("Carol")],),
         centerTitle: true,
       ),
       body: SafeArea(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:vita_check/widgets.dart/bottom_navigation..dart';
+import 'package:vita_check/widgets/bottom_navigation..dart';
 
 class doctor extends StatelessWidget {
   const doctor({Key? key}) : super(key: key);
