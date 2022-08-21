@@ -1,15 +1,45 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:vita_check/widgets/bottom_navigation..dart';
 import 'package:vita_check/widgets/chart.dart';
 import 'package:vita_check/widgets/sensorData.dart';
 
 import 'package:vita_check/widgets/containerHieght.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class SensorData extends StatelessWidget {
+class SensorData extends StatefulWidget {
   const SensorData({Key? key}) : super(key: key);
 
   @override
+  State<SensorData> createState() => _SensorDataState();
+}
+
+class _SensorDataState extends State<SensorData> {
+   final _auth=FirebaseAuth.instance;
+    // FirebaseUser loggedInUser;
+@override
+void initState(){
+  super.initState();
+  getCurrentUser();
+
+}
+
+    void getCurrentUser() async{
+      // try{
+      // final user =await _auth.currentUser;
+      // if (user != null){
+      //   loggedInUser =user;
+      //   print(loggedInUser.email);
+
+      //   }}catch(e){
+      //     print(e);
+      //   }
+
+    }
+  @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       backgroundColor: Color(0xff2D3A35),
       body: Stack(children: [

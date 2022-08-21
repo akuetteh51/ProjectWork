@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "355585282047",
+    "project_id": "vitacheck-5c137",
+    "storage_bucket": "vitacheck-5c137.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355585282047:android:c0b2404c0aed5b23e4a1ca",
+        "android_client_info": {
+          "package_name": "com.VitaCheck.vita_check"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355585282047-qqitgfcm6ss2vatrsjqikkv902gppnon.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaSzT_7VfnQXTKQG0gJQ2kCJDxwm8wnmg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355585282047-qqitgfcm6ss2vatrsjqikkv902gppnon.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

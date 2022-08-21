@@ -1,4 +1,4 @@
-package com.example.vita_check
+package com.VitaCheck.vita_check
 
 import io.flutter.embedding.android.FlutterActivity
 
