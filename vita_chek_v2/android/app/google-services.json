@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "338903419473",
+    "project_id": "iothealth-194b7",
+    "storage_bucket": "iothealth-194b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338903419473:android:181c6edf513faabb9c8670",
+        "android_client_info": {
+          "package_name": "com.example.vita_chek_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "338903419473-3o2q7fcvd54ducgehfjv9k8o0for4k2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCeakdtJIkvlPOuMYbywi5LXebWlJCC9qI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "338903419473-3o2q7fcvd54ducgehfjv9k8o0for4k2r.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "338903419473-ld6n36cleeiv196gfvamk5hvkklgpojo.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.vitaCheckV2"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
