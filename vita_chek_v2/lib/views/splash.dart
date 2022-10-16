@@ -1,10 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:vita_chek_v2/views/homeLogin.dart';
+import 'package:vita_chek_v2/views/signup.dart';
+import 'package:vita_chek_v2/views/welcome.dart';
+
+import '../provider/auth/auth_state.dart';
+import '../provider/auth_provider.dart';
 
 class Splash extends StatelessWidget {
   const Splash({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authState = context.watch<AuthProvider>().state;
+    if (authState.authStatus == AuthStatus.authenticated) {
+      WidgetsBinding.instance!.addPostFrameCallback(
+        (_) {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const Welcome(),
+            ),
+          );
+        },
+      );
+    } else if (authState.authStatus == AuthStatus.unauthenticated) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SignUp(),
+        ),
+      );
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Center(

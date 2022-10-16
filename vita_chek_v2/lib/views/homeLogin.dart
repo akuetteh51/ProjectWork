@@ -1,10 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:vita_chek_v2/google_icon_icons.dart';
+import 'package:vita_chek_v2/provider/auth/auth_state.dart';
+import 'package:vita_chek_v2/provider/auth_provider.dart';
 import 'package:vita_chek_v2/views/login.dart';
 import 'package:vita_chek_v2/views/signup.dart';
 
-import '../widgets/bottom_navigation..dart';
+import 'package:provider/provider.dart';
+import 'package:vita_chek_v2/views/welcome.dart';
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -41,24 +42,24 @@ class Home extends StatelessWidget {
               ),
               SizedBox(height: 40),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  onPressed:
+                  (() => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (_) => SignUp()),
+                      ));
+                },
                 child: Container(
                   width: 257,
                   height: 60,
                   color: Color(0xff3E64FF),
-                  child: TextButton(
-                    onPressed: (() => Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (_) => SignUp()),
-                        )),
-                    child: Center(
-                      child: Text(
-                        "Sign Up",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.w400),
-                      ),
+                  child: Center(
+                    child: Text(
+                      "Sign Up",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 24,
+                          fontWeight: FontWeight.w400),
                     ),
                   ),
                 ),

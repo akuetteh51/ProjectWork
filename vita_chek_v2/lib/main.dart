@@ -1,8 +1,13 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart' as fbAuth;
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:vita_chek_v2/views/about.dart';
+import 'package:provider/provider.dart';
+import 'package:vita_chek_v2/provider/auth_provider.dart';
+import 'package:vita_chek_v2/views/auth_repos.dart';
 import 'package:vita_chek_v2/views/homeLogin.dart';
 import 'package:vita_chek_v2/views/login.dart';
 import 'package:vita_chek_v2/views/signup.dart';
@@ -43,15 +48,48 @@ class MyApp extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
         ),
-        nextScreen: PageView(
-          controller: _controller,
-          children: [
-            Splash(),
-            Home(),
-            Welcome(),
+        nextScreen: MultiProvider(
+          providers: [
+            Provider<AuthRepository>(
+              create: (context) => AuthRepository(
+                firebaseFirestore: FirebaseFirestore.instance,
+                firebaseAuth: fbAuth.FirebaseAuth.instance,
+              ),
+            ),
+            StreamProvider<fbAuth.User?>(
+              create: (context) => context.read<AuthRepository>().user,
+              initialData: null,
+            ),
+            ChangeNotifierProxyProvider<fbAuth.User?, AuthProvider>(
+              create: (context) => AuthProvider(
+                authRepository: context.read<AuthRepository>(),
+              ),
+              update: (BuildContext context, fbAuth.User? userStream,
+                      AuthProvider? authProvider) =>
+                  authProvider!..update(userStream),
+            )
           ],
+          child: PageView(
+            controller: _controller,
+            children: [
+              Splash(),
+              Home(),
+              Welcome(),
+            ],
+          ),
         ),
         splashTransition: SplashTransition.fadeTransition,
         backgroundColor: Colors.white);
+  }
+}
+
+class MyApp2 extends StatelessWidget {
+  const MyApp2({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Text("hello world"),
+    );
   }
 }

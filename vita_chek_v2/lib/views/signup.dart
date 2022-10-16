@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
@@ -56,74 +54,77 @@ class SignUp extends StatelessWidget {
                     Positioned(
                       top: 120,
                       left: 80,
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 270,
-                            width: 250,
-                            child: Column(children: [
-                              TextField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  labelText: "Your Full name",
-                                  suffixIcon: Icon(Icons.person_outlined),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Container(
+                              height: 270,
+                              width: 250,
+                              child: Column(children: [
+                                TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                    labelText: "Your Full name",
+                                    suffixIcon: Icon(Icons.person_outlined),
+                                  ),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              TextField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  labelText: "Email",
-                                  suffixIcon: Icon(Icons.mail),
+                                SizedBox(
+                                  height: 20,
                                 ),
-                              ),
-                              SizedBox(
-                                height: 20,
-                              ),
-                              TextField(
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  labelText: "Password",
-                                  suffixIcon: Icon(Icons.remove_red_eye),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                    labelText: "Email",
+                                    suffixIcon: Icon(Icons.mail),
+                                  ),
                                 ),
-                                obscureText: true,
-                              )
-                            ]),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(6),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                TextField(
+                                  decoration: InputDecoration(
+                                    border: OutlineInputBorder(),
+                                    fillColor: Colors.white,
+                                    filled: true,
+                                    labelText: "Password",
+                                    suffixIcon: Icon(Icons.remove_red_eye),
+                                  ),
+                                  obscureText: true,
+                                )
+                              ]),
                             ),
-                            width: 257,
-                            height: 60,
-                            child: TextButton(
-                              child: Text(
-                                "Create Account",
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  color: Color(0xff3E64FF),
-                                ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(6),
                               ),
-                              onPressed: () {},
+                              width: 257,
+                              height: 60,
+                              child: TextButton(
+                                child: Text(
+                                  "Create Account",
+                                  style: TextStyle(
+                                    fontSize: 24,
+                                    color: Color(0xff3E64FF),
+                                  ),
+                                ),
+                                onPressed: () {},
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Already have an account SignIn",
-                            style: TextStyle(color: Colors.white, fontSize: 14),
-                          ),
-                        ],
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              "Already have an account SignIn",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 14),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ],
