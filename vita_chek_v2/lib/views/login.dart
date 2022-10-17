@@ -1,10 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:validators/validators.dart';
+import 'package:vita_chek_v2/models/custom_error.dart';
+import 'package:vita_chek_v2/provider/sigin/sigin_state.dart';
+import 'package:vita_chek_v2/provider/sigin/signin_provider.dart';
+import 'package:provider/provider.dart';
 
-class LogIn extends StatelessWidget {
-  const LogIn({super.key});
+import '../controller/error_dialog.dart';
+import 'signup.dart';
+
+class LogIn extends StatefulWidget {
+  LogIn({super.key});
+
+  @override
+  State<LogIn> createState() => _LogInState();
+}
+
+class _LogInState extends State<LogIn> {
+  final _formKey = GlobalKey<FormState>();
+
+  AutovalidateMode _autovalidateMode = AutovalidateMode.disabled;
+
+  String? _email, _password;
+
+  void _submit() async {
+    setState(() {
+      _autovalidateMode = AutovalidateMode.always;
+    });
+    final form = _formKey.currentState;
+    if (form == null || !form.validate()) return;
+    form.save();
+    print('email:$_email password: $_password');
+
+    try {
+      await context
+          .read<SigninProvider>()
+          .signin(email: _email!, password: _password!);
+    } on customError catch (e) {
+      errorDialog(context, e);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final signinState = context.watch<SigninProvider>().state;
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -57,41 +95,78 @@ class LogIn extends StatelessWidget {
                               Container(
                                 height: 270,
                                 width: 250,
-                                child: Column(children: [
-                                  SizedBox(
-                                    height: 20,
+                                child: Form(
+                                  key: _formKey,
+                                  autovalidateMode: _autovalidateMode,
+                                  child: ListView(
+                                    shrinkWrap: true,
+                                    children: [
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      TextFormField(
+                                        keyboardType:
+                                            TextInputType.emailAddress,
+                                        autofocus: false,
+                                        decoration: InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          fillColor: Colors.white,
+                                          filled: true,
+                                          labelText: "Email",
+                                          suffixIcon: Icon(Icons.mail),
+                                        ),
+                                        validator: (String? value) {
+                                          if (value == null ||
+                                              value.trim().isEmpty) {
+                                            return 'Email required';
+                                          }
+                                          if (!isEmail(value.trim())) {
+                                            return 'Enter a valid Email';
+                                          }
+                                          return null;
+                                        },
+                                        onSaved: (String? value) {
+                                          _email = value;
+                                        },
+                                      ),
+                                      SizedBox(
+                                        height: 20,
+                                      ),
+                                      TextFormField(
+                                        decoration: InputDecoration(
+                                          border: OutlineInputBorder(),
+                                          fillColor: Colors.white,
+                                          filled: true,
+                                          labelText: "Password",
+                                          suffixIcon:
+                                              Icon(Icons.remove_red_eye),
+                                        ),
+                                        obscureText: true,
+                                        validator: (String? value) {
+                                          if (value == null ||
+                                              value.trim().isEmpty) {
+                                            return 'Password required';
+                                          }
+                                          if (value.trim().length < 6) {
+                                            return 'Password must be at least 6 characteers long';
+                                          }
+                                          return null;
+                                        },
+                                        onSaved: (String? value) {
+                                          _password = value;
+                                        },
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        "Forgot Password ?",
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 16),
+                                      )
+                                    ],
                                   ),
-                                  TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      fillColor: Colors.white,
-                                      filled: true,
-                                      labelText: "Email",
-                                      suffixIcon: Icon(Icons.mail),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  TextField(
-                                    decoration: InputDecoration(
-                                      border: OutlineInputBorder(),
-                                      fillColor: Colors.white,
-                                      filled: true,
-                                      labelText: "Password",
-                                      suffixIcon: Icon(Icons.remove_red_eye),
-                                    ),
-                                    obscureText: true,
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "Forgot Password ?",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 16),
-                                  )
-                                ]),
+                                ),
                               ),
                               Container(
                                 decoration: BoxDecoration(
@@ -102,22 +177,51 @@ class LogIn extends StatelessWidget {
                                 height: 60,
                                 child: TextButton(
                                   child: Text(
-                                    "Login",
+                                    signinState.signinStatus ==
+                                            SigninStatus.submitting
+                                        ? "loading...."
+                                        : "Login",
                                     style: TextStyle(
                                       fontSize: 24,
                                       color: Color(0xff3E64FF),
                                     ),
                                   ),
-                                  onPressed: () {},
+                                  onPressed: signinState.signinStatus ==
+                                          SigninStatus.submitting
+                                      ? null
+                                      : _submit,
                                 ),
                               ),
                               SizedBox(
                                 height: 10,
                               ),
-                              Text(
-                                "Don’t have an account? SignUp",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 14),
+                              GestureDetector(
+                                onTap: signinState.signinStatus ==
+                                        SigninStatus.submitting
+                                    ? null
+                                    : () {
+                                        Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (_) => SignUp()),
+                                        );
+                                      },
+                                child: Row(
+                                  children: [
+                                    Text(
+                                      "Don’t have an account? ",
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 14),
+                                    ),
+                                    Text(
+                                      "SignUp",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                          fontSize: 14),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),

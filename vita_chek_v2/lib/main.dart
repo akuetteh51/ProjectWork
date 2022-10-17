@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:vita_chek_v2/provider/auth_provider.dart';
+import 'package:vita_chek_v2/provider/sigin/signin_provider.dart';
 import 'package:vita_chek_v2/views/auth_repos.dart';
 import 'package:vita_chek_v2/views/homeLogin.dart';
 import 'package:vita_chek_v2/views/login.dart';
@@ -67,7 +68,12 @@ class MyApp extends StatelessWidget {
               update: (BuildContext context, fbAuth.User? userStream,
                       AuthProvider? authProvider) =>
                   authProvider!..update(userStream),
-            )
+            ),
+            ChangeNotifierProvider<SigninProvider>(
+              create: (context) => SigninProvider(
+                authRepository: context.read<AuthRepository>(),
+              ),
+            ),
           ],
           child: PageView(
             controller: _controller,
@@ -80,16 +86,5 @@ class MyApp extends StatelessWidget {
         ),
         splashTransition: SplashTransition.fadeTransition,
         backgroundColor: Colors.white);
-  }
-}
-
-class MyApp2 extends StatelessWidget {
-  const MyApp2({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text("hello world"),
-    );
   }
 }

@@ -43,11 +43,10 @@ class Home extends StatelessWidget {
               SizedBox(height: 40),
               TextButton(
                 onPressed: () {
-                  onPressed:
-                  (() => Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (_) => SignUp()),
-                      ));
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (_) => SignUp()),
+                  );
                 },
                 child: Container(
                   width: 257,

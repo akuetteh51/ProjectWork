@@ -60,42 +60,48 @@ class SignUp extends StatelessWidget {
                             Container(
                               height: 270,
                               width: 250,
-                              child: Column(children: [
-                                TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    fillColor: Colors.white,
-                                    filled: true,
-                                    labelText: "Your Full name",
-                                    suffixIcon: Icon(Icons.person_outlined),
+                              child: Form(
+
+                                
+                                child: ListView(
+                                  
+                                  children: [
+                                  TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      fillColor: Colors.white,
+                                      filled: true,
+                                      labelText: "Your Full name",
+                                      suffixIcon: Icon(Icons.person_outlined),
+                                    ),
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    fillColor: Colors.white,
-                                    filled: true,
-                                    labelText: "Email",
-                                    suffixIcon: Icon(Icons.mail),
+                                  SizedBox(
+                                    height: 20,
                                   ),
-                                ),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                TextField(
-                                  decoration: InputDecoration(
-                                    border: OutlineInputBorder(),
-                                    fillColor: Colors.white,
-                                    filled: true,
-                                    labelText: "Password",
-                                    suffixIcon: Icon(Icons.remove_red_eye),
+                                  TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      fillColor: Colors.white,
+                                      filled: true,
+                                      labelText: "Email",
+                                      suffixIcon: Icon(Icons.mail),
+                                    ),
                                   ),
-                                  obscureText: true,
-                                )
-                              ]),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  TextField(
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      fillColor: Colors.white,
+                                      filled: true,
+                                      labelText: "Password",
+                                      suffixIcon: Icon(Icons.remove_red_eye),
+                                    ),
+                                    obscureText: true,
+                                  )
+                                ]),
+                              ),
                             ),
                             Container(
                               decoration: BoxDecoration(

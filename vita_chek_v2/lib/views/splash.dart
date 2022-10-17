@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vita_chek_v2/views/homeLogin.dart';
+import 'package:vita_chek_v2/views/login.dart';
 import 'package:vita_chek_v2/views/signup.dart';
 import 'package:vita_chek_v2/views/welcome.dart';
 
@@ -28,7 +29,7 @@ class Splash extends StatelessWidget {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SignUp(),
+          builder: (context) => LogIn(),
         ),
       );
     }
