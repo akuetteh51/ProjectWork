@@ -8,12 +8,15 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:vita_chek_v2/provider/auth_provider.dart';
 import 'package:vita_chek_v2/provider/sigin/signin_provider.dart';
+import 'package:vita_chek_v2/views/about.dart';
 import 'package:vita_chek_v2/views/auth_repos.dart';
+import 'package:vita_chek_v2/views/dataSensor.dart';
 import 'package:vita_chek_v2/views/homeLogin.dart';
-import 'package:vita_chek_v2/views/login.dart';
-import 'package:vita_chek_v2/views/signup.dart';
+import 'package:vita_chek_v2/views/signup_page.dart';
 import 'package:vita_chek_v2/views/splash.dart';
 import 'package:vita_chek_v2/views/welcome.dart';
+
+import 'provider/signup/signup_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +24,9 @@ void main() async {
   return runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MyApp(),
+      home: SensorHome(),
+      // signupPage(),
+      // MyApp(),
       // SignUp(),
       // LogIn(),
       // About(),
@@ -74,6 +79,11 @@ class MyApp extends StatelessWidget {
                 authRepository: context.read<AuthRepository>(),
               ),
             ),
+            // ChangeNotifierProvider<SignupProvider>(
+            //   create: (context) => SignupProvider(
+            //     authRepository: context.read<AuthRepository>(),
+            //   ),
+            // ),
           ],
           child: PageView(
             controller: _controller,

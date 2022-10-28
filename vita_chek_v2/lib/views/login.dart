@@ -9,7 +9,7 @@ import '../controller/error_dialog.dart';
 import 'signup.dart';
 
 class LogIn extends StatefulWidget {
-  LogIn({super.key});
+  const LogIn({super.key});
 
   @override
   State<LogIn> createState() => _LogInState();

@@ -26,11 +26,16 @@ class Splash extends StatelessWidget {
         },
       );
     } else if (authState.authStatus == AuthStatus.unauthenticated) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => LogIn(),
-        ),
+      WidgetsBinding.instance!.addPostFrameCallback(
+        (_) {
+          // Navigator.push(
+          //   context,
+          //   MaterialPageRoute(
+          //     builder: (context) =>
+          //     // LogIn(),
+          //   ),
+          // );
+        },
       );
     }
 
