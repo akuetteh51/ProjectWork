@@ -54,17 +54,28 @@ class Calendar extends StatelessWidget {
         ),
         body: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(14),
-                  boxShadow: [
-                    BoxShadow(color: Colors.blue, offset: Offset.zero)
-                  ]),
-              width: 247,
-              height: 47,
-              child: TextButton(
-                child: Text("CALENDAR"),
-                onPressed: () {},
+            SizedBox(
+              height: 80,
+            ),
+            Center(
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(14),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3),
+                      )
+                    ]),
+                width: 247,
+                height: 47,
+                child: TextButton(
+                  child: Text("CALENDAR"),
+                  onPressed: () {},
+                ),
               ),
             ),
           ],

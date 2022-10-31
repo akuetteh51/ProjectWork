@@ -43,6 +43,7 @@ dependencies:
   firebase_core: ^1.24.0
   provider: ^6.0.4
   validators: ^3.0.0
+  outlined_text: ^1.0.1
 
 dev_dependencies:
   flutter_test:

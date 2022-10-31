@@ -14,8 +14,24 @@ class SensorHome extends StatelessWidget {
         selectedIndex: 4,
       ),
       appBar: AppBar(
-        leading: Column(
-          children: [Expanded(child: Text("Good morning")), Text("Kwame")],
+        scrolledUnderElevation: 0,
+        elevation: 0,
+        backgroundColor: Colors.white70,
+        title: Expanded(
+          child: Row(
+            children: [
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                "Good morning \n Kwame",
+                style: TextStyle(
+                  overflow: TextOverflow.clip,
+                  color: const Color(0xFF3E64FF),
+                ),
+              ),
+            ],
+          ),
         ),
         actions: [
           Image.asset("images/doc1.png"),
@@ -40,6 +56,8 @@ class SensorHome extends StatelessWidget {
             Sensor_data(
               color: const Color(0xFF3E64FF),
               text: "Your temperature",
+              outlineColor: Colors.black,
+
               positionIcon: Padding(
                 padding: const EdgeInsets.only(top: 30, left: 30),
                 child: Image.asset("images/temperature.png"),
@@ -52,16 +70,18 @@ class SensorHome extends StatelessWidget {
               height: 20,
             ),
             Sensor_data(
+              sized_height: 30,
               color: Colors.white,
               text: "Blood Pressure",
               sensorData: "120mmhg",
+              outlineColor: Colors.transparent,
               positionIcon: Padding(
                 padding: const EdgeInsets.only(
-                  top: 30,
-                  left: 50,
-                  right: 30,
+                  top: 65,
+                  left: 10,
+                  right: 10,
                 ),
-                child: Image.asset("images/bloodpressure.png"),
+                child: Image.asset("images/bloodpressure1.png"),
               ),
               // dataIcon: "images/bloodpressure.png",
               fontcolor: Colors.black,
@@ -72,6 +92,7 @@ class SensorHome extends StatelessWidget {
             Sensor_data(
               color: const Color(0xFF3E64FF),
               text: "Weight",
+              outlineColor: Colors.black,
               positionIcon: Padding(
                 padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
                 child: Image.asset("images/weight.png"),
@@ -86,6 +107,7 @@ class SensorHome extends StatelessWidget {
             Sensor_data(
               color: Colors.white,
               text: "Height",
+              outlineColor: Colors.transparent,
               positionIcon: Padding(
                 padding: const EdgeInsets.only(top: 30, left: 30),
                 child: Image.asset("images/height.png"),
