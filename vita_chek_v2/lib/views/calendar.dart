@@ -83,11 +83,12 @@ class Calendar extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (_) => DoctorProfile()),
-                              );
+                              // Navigator.pushReplacement(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //       builder: (_) => DoctorProfile(),
+                              //       ),
+                              // );
                             },
                             child: Container(
                                 width: 30,

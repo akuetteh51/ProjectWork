@@ -23,12 +23,12 @@ class _BottomNavigationState extends State<BottomNavigation> {
     Icons.chat,
     Icons.heart_broken_sharp,
   ];
-  final _pages = [Home(), Doctor(), Calendar(), Chat(), SensorHome()];
+  final _pages = [Home(), Doctor(), Calendar(), aichat(), SensorHome()];
   @override
   Widget build(BuildContext context) {
     print(widget.selectedIndex);
     return Padding(
-      padding: const EdgeInsets.only(bottom: 30,left: 30,right: 30),
+      padding: const EdgeInsets.only(bottom: 30, left: 30, right: 30),
       child: Material(
         elevation: 10,
         borderRadius: BorderRadius.circular(25),
