@@ -46,7 +46,7 @@ class Sensor_data extends StatelessWidget {
             ],
           ),
           width: MediaQuery.of(context).size.width / 1.4,
-          height: 197,
+          height: 167,
           child: Stack(children: [
             Positioned(
               top: 40,

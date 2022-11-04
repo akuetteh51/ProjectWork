@@ -59,7 +59,7 @@ class SensorHome extends StatelessWidget {
               outlineColor: Colors.black,
 
               positionIcon: Padding(
-                padding: const EdgeInsets.only(top: 30, left: 30),
+                padding: const EdgeInsets.only(top: 20, left: 30),
                 child: Image.asset("images/temperature.png"),
               ),
               // dataIcon: "images/temperature.png",
@@ -70,18 +70,18 @@ class SensorHome extends StatelessWidget {
               height: 20,
             ),
             Sensor_data(
-              sized_height: 30,
+              sized_height: 20,
               color: Colors.white,
               text: "Blood Pressure",
               sensorData: "120mmhg",
               outlineColor: Colors.transparent,
               positionIcon: Padding(
                 padding: const EdgeInsets.only(
-                  top: 65,
+                  top: 45,
                   left: 10,
                   right: 10,
                 ),
-                child: Image.asset("images/bloodpressure1.png"),
+                child: Image.asset("images/bloodpressure.png"),
               ),
               // dataIcon: "images/bloodpressure.png",
               fontcolor: Colors.black,
@@ -94,7 +94,7 @@ class SensorHome extends StatelessWidget {
               text: "Weight",
               outlineColor: Colors.black,
               positionIcon: Padding(
-                padding: const EdgeInsets.only(top: 50, left: 30, right: 30),
+                padding: const EdgeInsets.only(top: 30, left: 30, right: 30),
                 child: Image.asset("images/weight.png"),
               ),
               // dataIcon: "images/weight.png",
@@ -109,7 +109,7 @@ class SensorHome extends StatelessWidget {
               text: "Height",
               outlineColor: Colors.transparent,
               positionIcon: Padding(
-                padding: const EdgeInsets.only(top: 30, left: 30),
+                padding: const EdgeInsets.only(top: 18, left: 30),
                 child: Image.asset("images/height.png"),
               ),
               // dataIcon: "images/height.png",

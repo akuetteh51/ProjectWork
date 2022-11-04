@@ -8,66 +8,208 @@ class Doctor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        scrolledUnderElevation: 0,
+        elevation: 0,
+        backgroundColor: Colors.white70,
+        title: Expanded(
+          child: Row(
+            children: [
+              SizedBox(
+                width: 20,
+              ),
+              Text(
+                "Welcome \n Kwame",
+                style: TextStyle(
+                  overflow: TextOverflow.clip,
+                  color: const Color(0xFF3E64FF),
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions: [
+          Image.asset("images/doc1.png"),
+        ],
+      ),
       bottomNavigationBar: BottomNavigation(
         selectedIndex: 1,
       ),
-//       body: Center(child: Text("Docotor")),
-//     );
-//   }
-// }
-
-      body: Container(
-        padding: EdgeInsets.all(10),
-        child: Stack(
-          children: <Widget>[
-            Positioned(
-              top: 30,
-              left: 30,
-              height: 250,
-              width: 250,
-              child: Container(
-                width: 150,
-                height: 150,
-                color: Colors.green[300],
-                child: Text(
-                  'Green',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 70,
-              left: 60,
-              width: 250,
-              height: 250,
-              child: Container(
-                width: 150,
-                height: 150,
-                color: Colors.red[400],
-                child: Text(
-                  'Red',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ),
-            Positioned(
-              top: 80,
-              left: 90,
-              width: 250,
-              height: 250,
-              child: Container(
-                width: 80,
-                height: 80,
-                color: Colors.purple[300],
-                child: Text(
-                  'Purple',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                ),
-              ),
-            ),
-          ],
+      body: Stack(children: [
+        Expanded(
+          child: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Image.asset(fit: BoxFit.cover, "images/doctor_bg.png"),
+          ),
         ),
-      ),
+        SizedBox(
+          height: 20,
+        ),
+        Positioned(
+          top: 60,
+          left: 100,
+          child: Text(
+            "Book your \n Appointment ",
+            style: TextStyle(
+              color: const Color(0xFF3E64FF),
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 80,
+        ),
+        Positioned(
+          top: 180,
+          left: 40,
+          child: SizedBox(
+            height: 36,
+            width: 318,
+            child: TextField(
+                decoration: InputDecoration(
+              hintText: "search for your favorite doctor",
+              labelStyle: TextStyle(color: Colors.black),
+              suffixIcon: Icon(Icons.search),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(50),
+              ),
+              filled: false,
+              fillColor: Colors.blue,
+            )),
+          ),
+        ),
+        Positioned(
+          top: 260,
+          left: 30.5,
+          child: Container(
+            width: 307,
+            height: 145,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(left: 17.0),
+                  child: Image.asset("images/doct1.png"),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 22.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text("Dr Jason Smith",
+                          style: TextStyle(
+                              color: const Color(0xFF3E64FF),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                      Text("(Pediatrician) ",
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.bold)),
+                      Row(
+                        children: [
+                          Icon(Icons.phone),
+                          Text(" +233 54 0000 000",
+                              style: TextStyle(
+                                  fontSize: 10, fontWeight: FontWeight.normal)),
+                        ],
+                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                color: const Color(0xFF3E64FF),
+                              ),
+                              width: 133,
+                              height: 30,
+                              child: Center(
+                                  child: Text(
+                                "Book appointment",
+                                style: TextStyle(color: Colors.white),
+                              ))))
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 450,
+          left: 30.5,
+          child: Container(
+            width: 307,
+            height: 145,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5),
+                  offset: Offset(0, 3),
+                ),
+              ],
+            ),
+            child: Row(
+              children: [
+                Image.asset("images/doct2.png"),
+                Padding(
+                  padding: const EdgeInsets.only(left: 22.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Text("Dr. Godliva Brown",
+                          style: TextStyle(
+                              color: const Color(0xFF3E64FF),
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold)),
+                      Text("(Radiologists) ",
+                          style: TextStyle(
+                              fontSize: 12, fontWeight: FontWeight.bold)),
+                      Row(
+                        children: [
+                          Icon(Icons.phone),
+                          Text(" +233 54 0000 000",
+                              style: TextStyle(
+                                  fontSize: 10, fontWeight: FontWeight.normal)),
+                        ],
+                      ),
+                      TextButton(
+                          onPressed: () {},
+                          child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                color: const Color(0xFF3E64FF),
+                              ),
+                              width: 133,
+                              height: 30,
+                              child: Center(
+                                  child: Text(
+                                "Book appointment",
+                                style: TextStyle(color: Colors.white),
+                              ))))
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+        )
+      ]),
     );
   }
 }
