@@ -5,6 +5,7 @@
 // import 'package:provider/provider.dart';
 
 // import '../controller/error_dialog.dart';
+// import '../provider/sigin/sigin_state.dart';
 // import '../provider/signup/signup_provider.dart';
 
 // class signupPage extends StatefulWidget {
@@ -44,6 +45,7 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     // ignore: prefer_typing_uninitialized_variables
+//     final signupState = context.watch<SignupProvider>().state;
 //     return GestureDetector(
 //       onTap: () => FocusScope.of(context).unfocus(),
 //       child: Scaffold(
@@ -168,7 +170,7 @@
 //                     height: 60,
 //                     child: TextButton(
 //                       child: Text(
-//                         SignupState.signupStatus == SignupStatus.submitting
+//                         signupState.signupStatus == SignupStatus.submitting
 //                             ? "loading...."
 //                             : "Login",
 //                         style: TextStyle(

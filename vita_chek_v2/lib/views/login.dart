@@ -49,7 +49,6 @@ class _LogInState extends State<LogIn> {
           child: Container(
             height: MediaQuery.of(context).size.height,
             child: Column(
-              // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -80,12 +79,17 @@ class _LogInState extends State<LogIn> {
                           top: 50,
                           left: 120,
                           child: Text(
-                            "Login",
+                            "LogIn",
                             style: TextStyle(
                                 fontSize: 36,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
+                        ),
+                        Container(
+                          height: 5,
+                          width: 23,
+                          color: Colors.white,
                         ),
                         Positioned(
                           top: 120,
@@ -109,12 +113,13 @@ class _LogInState extends State<LogIn> {
                                             TextInputType.emailAddress,
                                         autofocus: false,
                                         decoration: InputDecoration(
-                                          border: OutlineInputBorder(),
-                                          fillColor: Colors.white,
-                                          filled: true,
-                                          labelText: "Email",
-                                          suffixIcon: Icon(Icons.mail),
-                                        ),
+                                            border: OutlineInputBorder(),
+                                            fillColor: Colors.white,
+                                            filled: true,
+                                            hintText: "Email",
+                                            suffixIcon: Icon(Icons.mail),
+                                            errorStyle:
+                                                TextStyle(color: Colors.white)),
                                         validator: (String? value) {
                                           if (value == null ||
                                               value.trim().isEmpty) {
@@ -137,9 +142,11 @@ class _LogInState extends State<LogIn> {
                                           border: OutlineInputBorder(),
                                           fillColor: Colors.white,
                                           filled: true,
-                                          labelText: "Password",
+                                          hintText: "Password",
                                           suffixIcon:
                                               Icon(Icons.remove_red_eye),
+                                          errorStyle:
+                                              TextStyle(color: Colors.white),
                                         ),
                                         obscureText: true,
                                         validator: (String? value) {
@@ -213,13 +220,22 @@ class _LogInState extends State<LogIn> {
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 14),
                                     ),
-                                    Text(
-                                      "SignUp",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
-                                          fontSize: 14),
-                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (_) => SignUp()),
+                                        );
+                                      },
+                                      child: Text(
+                                        "SignUp",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                            fontSize: 14),
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),

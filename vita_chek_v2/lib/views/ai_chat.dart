@@ -30,7 +30,7 @@ class aichat extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff3E64FF),
-        leading: BackButtonIcon(),
+        leading: Icon(Icons.arrow_back_ios_new),
         title: Row(
           children: [
             CircleAvatar(
@@ -115,7 +115,7 @@ class aichat extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                       textAlign: TextAlign.center,
                       controller: messageTextController,
-                      cursorColor: Color.fromRGBO(1, 0, 9, 1),
+                      cursorColor: Colors.white12,
                       onChanged: (value) {
                         messageSender.add(value);
                       },

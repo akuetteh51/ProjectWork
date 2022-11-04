@@ -8,11 +8,9 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:vita_chek_v2/provider/auth_provider.dart';
 import 'package:vita_chek_v2/provider/sigin/signin_provider.dart';
-import 'package:vita_chek_v2/views/about.dart';
 import 'package:vita_chek_v2/views/auth_repos.dart';
 import 'package:vita_chek_v2/views/dataSensor.dart';
 import 'package:vita_chek_v2/views/homeLogin.dart';
-import 'package:vita_chek_v2/views/signup_page.dart';
 import 'package:vita_chek_v2/views/splash.dart';
 import 'package:vita_chek_v2/views/welcome.dart';
 
@@ -22,14 +20,47 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   return runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SensorHome(),
-      // signupPage(),
-      // MyApp(),
-      // SignUp(),
-      // LogIn(),
-      // About(),
+    MultiProvider(
+      providers: [
+        Provider<AuthRepository>(
+          create: (context) => AuthRepository(
+            firebaseFirestore: FirebaseFirestore.instance,
+            firebaseAuth: fbAuth.FirebaseAuth.instance,
+          ),
+        ),
+        StreamProvider<fbAuth.User?>(
+          create: (context) => context.read<AuthRepository>().user,
+          initialData: null,
+        ),
+        ChangeNotifierProxyProvider<fbAuth.User?, AuthProvider>(
+          create: (context) => AuthProvider(
+            authRepository: context.read<AuthRepository>(),
+          ),
+          update: (BuildContext context, fbAuth.User? userStream,
+                  AuthProvider? authProvider) =>
+              authProvider!..update(userStream),
+        ),
+        ChangeNotifierProvider<SigninProvider>(
+          create: (context) => SigninProvider(
+            authRepository: context.read<AuthRepository>(),
+          ),
+        ),
+        ChangeNotifierProvider<SignupProvider>(
+          create: (context) => SignupProvider(
+            authRepository: context.read<AuthRepository>(),
+          ),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home:
+            // SensorHome(),
+            // signupPage(),
+            MyApp(),
+        // SignUp(),
+        // LogIn(),
+        // About(),
+      ),
     ),
   );
 }
@@ -54,45 +85,13 @@ class MyApp extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
         ),
-        nextScreen: MultiProvider(
-          providers: [
-            Provider<AuthRepository>(
-              create: (context) => AuthRepository(
-                firebaseFirestore: FirebaseFirestore.instance,
-                firebaseAuth: fbAuth.FirebaseAuth.instance,
-              ),
-            ),
-            StreamProvider<fbAuth.User?>(
-              create: (context) => context.read<AuthRepository>().user,
-              initialData: null,
-            ),
-            ChangeNotifierProxyProvider<fbAuth.User?, AuthProvider>(
-              create: (context) => AuthProvider(
-                authRepository: context.read<AuthRepository>(),
-              ),
-              update: (BuildContext context, fbAuth.User? userStream,
-                      AuthProvider? authProvider) =>
-                  authProvider!..update(userStream),
-            ),
-            ChangeNotifierProvider<SigninProvider>(
-              create: (context) => SigninProvider(
-                authRepository: context.read<AuthRepository>(),
-              ),
-            ),
-            // ChangeNotifierProvider<SignupProvider>(
-            //   create: (context) => SignupProvider(
-            //     authRepository: context.read<AuthRepository>(),
-            //   ),
-            // ),
+        nextScreen: PageView(
+          controller: _controller,
+          children: [
+            Splash(),
+            Home(),
+            Welcome(),
           ],
-          child: PageView(
-            controller: _controller,
-            children: [
-              Splash(),
-              Home(),
-              Welcome(),
-            ],
-          ),
         ),
         splashTransition: SplashTransition.fadeTransition,
         backgroundColor: Colors.white);
