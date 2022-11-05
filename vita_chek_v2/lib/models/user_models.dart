@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/rendering.dart';
-import 'package:vita_chek_v2/main.dart';
 
 class User extends Equatable {
   final String id;
