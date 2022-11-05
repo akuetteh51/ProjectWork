@@ -28,13 +28,12 @@ class Splash extends StatelessWidget {
     } else if (authState.authStatus == AuthStatus.unauthenticated) {
       WidgetsBinding.instance!.addPostFrameCallback(
         (_) {
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) =>
-          //     // LogIn(),
-          //   ),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Home(),
+            ),
+          );
         },
       );
     }

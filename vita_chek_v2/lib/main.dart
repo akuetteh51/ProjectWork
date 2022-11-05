@@ -106,7 +106,7 @@ class start_screen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AnimatedSplashScreen(
-        duration: 5000,
+        duration: 3000,
         splash: Container(
           child: Image.asset("images/VitaCheck.png"),
           width: MediaQuery.of(context).size.width,
@@ -116,7 +116,6 @@ class start_screen extends StatelessWidget {
           controller: _controller,
           children: [
             Splash(),
-            Home(),
             Welcome(),
           ],
         ),

@@ -114,6 +114,7 @@ class _LogInState extends State<LogIn> {
                                         autofocus: false,
                                         decoration: InputDecoration(
                                             border: OutlineInputBorder(),
+                                             contentPadding: EdgeInsets.all(8),
                                             fillColor: Colors.white,
                                             filled: true,
                                             hintText: "Email",
@@ -140,6 +141,7 @@ class _LogInState extends State<LogIn> {
                                       TextFormField(
                                         decoration: InputDecoration(
                                           border: OutlineInputBorder(),
+                                           contentPadding: EdgeInsets.all(8),
                                           fillColor: Colors.white,
                                           filled: true,
                                           hintText: "Password",
