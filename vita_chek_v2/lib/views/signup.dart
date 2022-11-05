@@ -109,7 +109,9 @@ class _SignUpState extends State<SignUp> {
                   ),
                   Positioned(
                     top: 350,
-                    left: 80,
+                    left: 48,
+                    bottom: 0,
+                    right: 48,
                     child: SingleChildScrollView(
                       child: Container(
                         height: 370,
