@@ -8,9 +8,6 @@ class About extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-        ),
         bottomNavigationBar: BottomNavigation(
           selectedIndex: 0,
         ),
@@ -20,6 +17,9 @@ class About extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                SizedBox(
+                  height: 40,
+                ),
                 Center(
                   child: Container(
                     decoration: BoxDecoration(
@@ -72,7 +72,9 @@ class About extends StatelessWidget {
                 ),
                 Text(
                   "•	Train and educate hospital staff \n especially nurse about  \n htechnology in healthcare delivery",
-                  style: TextStyle(color: Colors.black),
+                  style: TextStyle(
+                    color: Color(0xff3E64FF),
+                  ),
                 ),
                 SizedBox(
                   height: 10,
