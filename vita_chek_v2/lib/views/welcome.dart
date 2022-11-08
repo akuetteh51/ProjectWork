@@ -6,7 +6,6 @@ import 'about.dart';
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +36,24 @@ class Welcome extends StatelessWidget {
                   onPressed: () {},
                   child: Container(
                       decoration: BoxDecoration(
-                          color: Colors.blue,
-                          borderRadius: BorderRadius.circular(24)),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 5,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          )
+                        ],
+                      ),
                       height: 60,
                       width: 257,
                       child: Center(
                         child: Text(
                           "Check Vitals",
-                          style: TextStyle(color: Colors.white, fontSize: 24),
+                          style:
+                              TextStyle(color: Color(0xff3E64FF), fontSize: 24),
                         ),
                       ))),
               Text(
@@ -59,14 +68,23 @@ class Welcome extends StatelessWidget {
                 onPressed: () {},
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.blue,
-                      borderRadius: BorderRadius.circular(24)),
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3),
+                      )
+                    ],
+                  ),
                   height: 60,
                   width: 257,
                   child: Center(
                     child: Text(
                       "Book appointment",
-                      style: TextStyle(color: Colors.white, fontSize: 24),
+                      style: TextStyle(color: Color(0xff3E64FF), fontSize: 24),
                     ),
                   ),
                 ),

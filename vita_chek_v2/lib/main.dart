@@ -6,16 +6,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:vita_chek_v2/provider/auth/auth_state.dart';
 import 'package:vita_chek_v2/provider/auth_provider.dart';
 import 'package:vita_chek_v2/provider/sigin/signin_provider.dart';
 import 'package:vita_chek_v2/views/auth_repos.dart';
-import 'package:vita_chek_v2/views/dataSensor.dart';
-import 'package:vita_chek_v2/views/homeLogin.dart';
-import 'package:vita_chek_v2/views/login.dart';
 import 'package:vita_chek_v2/views/splash.dart';
 import 'package:vita_chek_v2/views/welcome.dart';
-
 import 'provider/signup/signup_provider.dart';
 
 void main() async {
@@ -55,13 +50,7 @@ void main() async {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home:
-            // SensorHome(),
-            // signupPage(),
-            MyApp(),
-        // SignUp(),
-        // LogIn(),
-        // About(),
+        home: MyApp(),
       ),
     ),
   );
@@ -72,24 +61,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final authState = context.watch<AuthProvider>().state;
-    // if (authState.authStatus == AuthStatus.authenticated) {
-    //   WidgetsBinding.instance!.addPersistentFrameCallback((timeStamp) {
-    //     Navigator.push(
-    //         context,
-    //         MaterialPageRoute(
-    //           builder: (context) => Welcome(),
-    //         ));
-    //   });
-    // } else if (authState.authStatus == AuthStatus.unauthenticated) {
-    //   WidgetsBinding.instance!.addPersistentFrameCallback((timeStamp) {
-    //     Navigator.push(
-    //         context,
-    //         MaterialPageRoute(
-    //           builder: (context) => LogIn(),
-    //         ));
-    //   });
-    // }
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
