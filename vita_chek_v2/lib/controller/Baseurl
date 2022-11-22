@@ -1,0 +1,5 @@
+class APPBASEURL{
+  static String BASEURL = "https://vitacheck.herokuapp.com";
+  // static String BASEURL = "http://10.0.2.2:3001";
+  
+}
